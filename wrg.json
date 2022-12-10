@@ -1,0 +1,62 @@
+{
+  "roles": [
+    {
+      "id": 1,
+      "username": "Admin",
+      "password": "Administrator",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "username": "User",
+      "password": "123",
+      "role": "user"
+    },
+    {
+      "username": "sdv",
+      "password": "sdzv s",
+      "role": "user",
+      "id": 3
+    },
+    {
+      "username": "sandy",
+      "password": "dsa",
+      "role": "user",
+      "id": 4
+    },
+    {
+      "username": "Sandi putra",
+      "password": "13",
+      "role": "user",
+      "id": 5
+    },
+    {
+      "username": "Sandi putra",
+      "password": "234",
+      "role": "user",
+      "id": 6
+    },
+    {
+      "username": "Sandi putra",
+      "password": "sandi",
+      "role": "user",
+      "id": 7
+    },
+    {
+      "username": "Sandi putra",
+      "password": "sfcd",
+      "role": "user",
+      "id": 8
+    }
+  ],
+  "Makanans": [],
+  "Minuman": [
+    {
+      "nama": "tfgn",
+      "deskripsi": "fgn",
+      "image": "dfbh",
+      "harga": "457",
+      "id": 1
+    }
+  ]
+}
