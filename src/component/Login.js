@@ -13,7 +13,7 @@ export default function Login() {
     const login = async (e) => {
       navigate("/dashboard")
         e.preventDefault();
-        axios.get("http://localhost:8000/akun").then(({data}) => {
+        axios.get("http://localhost:8000/roles").then(({data}) => {
             const login = data.find(
                 (x) => x.username === username && x.password === password
             );
@@ -32,9 +32,13 @@ export default function Login() {
             } else {
                 Swal.fire(
                     'Gagal Melakukan Login!!',
-                    'You clicked the button!',
+                    'Silahkan Masukkan lagi dengan benar!',
                     'error'
-                  )
+                    )
+                    navigate("/login")
+                    setTimeout(() => {
+                      window.location.reload();
+                    }, 1500);
             }
         });
     };

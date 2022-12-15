@@ -44,7 +44,27 @@ video {
   }
   .btns {
     color: white;
-    font-size: large;
+    font-size: 40px;
+    text-decoration: none;
+    border: 2px solid black;
+    cursor: pointer;
+    border-color: white;
+    margin-top: 32px;
+    padding: 8px;
+  }
+  .btns:hover {
+    background-color: antiquewhite;
+    color: black;
+  }
+  .btnsReg {
+    color: black;
+    font-size: 40px;
+    text-decoration: none;
+    margin-left: 30px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    padding: 8px;
   }
   .fa-play-circle {
     margin-left: 4px;

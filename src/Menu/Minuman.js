@@ -2,10 +2,21 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react'
 import Navbar from '../component/Navbar'
 import Swal from 'sweetalert2'
-import { Button } from 'react-bootstrap';
+import { Button,InputGroup, Form, Modal } from 'react-bootstrap';
 
 export default function Minuman() {
-    const [ minuman , setMinumans ] = useState([]);
+  const [show, setShow] = useState(false);
+  const [nama, setNama] = useState("");
+  const [deskripsi, setDeskripsi] = useState("");
+  const [image, setImage] = useState("");
+  const [harga, setHarga] = useState("");
+  const [click, setClick] = useState(false);
+  const [ minuman , setMinumans ] = useState([]);
+
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
     // Get
     const getAllMinuman = async () => {
         await axios
@@ -17,6 +28,32 @@ export default function Minuman() {
         console.log("Terjadi Kesalahan " + error);
       });
     }
+
+    // Add 
+    const addMinuman = async (e) => {
+      e.preventDefault();
+  
+      try {
+        Swal.fire({
+          icon: "success",
+          title: "Berhasil Menambahkan",
+        });
+        await axios.post("http://localhost:8000/Minuman", {
+          nama: nama,
+          deskripsi: deskripsi,
+          image: image,
+          harga: harga,
+        });
+        window.location.reload();
+      } catch (error) {
+        console.log(error);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong!",
+        });
+      }
+    };
 
     // Delete
     const deleteMinuman = async (id) => {
@@ -45,29 +82,37 @@ export default function Minuman() {
   return (
    <div>
     <Navbar />
-    <table class="table table-dark table-hover">
-  <thead>
-    <tr>
-      <th scope="col">No</th>
-      <th scope="col">Nama</th>
-      <th scope="col">Deskripsi</th>
-      <th scope="col">Image</th>
-      <th scope="col">Harga</th>
-      {localStorage.getItem("id") !== null ? <th>Action</th> : <></>}
-    </tr>
-  </thead>
-  <tbody>
-  {minuman.map((drink, index) => {
-            return (
-              <tr key={drink.id}>
-                <td>{index + 1}</td>
-                <td>{drink.nama}</td>
-                <td>{drink.deskripsi}</td>
-                <td><img src={drink.image} alt="" width={100} height={100} /></td>
-                <td>{drink.harga}</td>
-                {localStorage.getItem("id") !== null ? (
-                <td>
-                  <Button
+    {localStorage.getItem("id") !== null ? 
+    <button className="btn danger" onClick={handleShow}>
+                Add
+    </button>
+    : <></> }
+    <div
+        style={{ padding: 20, display: "flex", gap: 50 }}
+        className="flex-wrap"
+      >
+        {minuman.map((drink) => (
+          <div
+            class="card"
+            style={{
+              width: "16rem",
+              backgroundColor: "palegoldenrod",
+              padding: 3,
+            }}
+          >
+            <img
+              style={{ width: 250, height: 200 }}
+              src={drink.image}
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body" style={{ textAlign: "center" }}>
+              <h5 class="card-title">{drink.nama}</h5>
+              <p class="card-text">{drink.deskripsi}</p>
+              <h6>Rp.{drink.harga}</h6>
+              {localStorage.getItem("id") !== null ? (
+                <>
+                <Button
                     variant="danger"
                     className="mx-1"
                     onClick={() => deleteMinuman(drink.id)}
@@ -78,14 +123,82 @@ export default function Minuman() {
                     <Button variant="success" className="mx-1">
                       Edit
                     </Button>
-                  </a>
-                </td>
-                     ) : <></>}
-              </tr>
-            );
-          })}
-  </tbody>
-</table>
+                    </a>
+                </>
+              ) : (
+                <a href="/login"  class="btn btn-danger">
+                Login
+               </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+<Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Tambahkan Minuman</Modal.Title>
+          </Modal.Header>
+          <form onSubmit={addMinuman} method="POST">
+            <Modal.Body>
+              <div className="mb-3">
+                <Form.Label>
+                  <strong>Nama</strong>
+                </Form.Label>
+                <InputGroup className="d-flex gab-3">
+                  <Form.Control
+                    placeholder="Masukkan Nama"
+                    value={nama}
+                    onChange={(e) => setNama(e.target.value)}
+                  />
+                </InputGroup>
+              </div>
+              <div className="mb-3">
+                <Form.Label>
+                  <strong>Deskripsi</strong>
+                </Form.Label>
+                <InputGroup className="d-flex gab-3">
+                  <Form.Control
+                    placeholder="Masukkan Deskripsi"
+                    value={deskripsi}
+                    onChange={(e) => setDeskripsi(e.target.value)}
+                  />
+                </InputGroup>
+              </div>
+              <div className="mb-3">
+                <Form.Label>
+                  <strong>Image</strong>
+                </Form.Label>
+                <InputGroup className="d-flex gab-3">
+                  <Form.Control
+                    placeholder="Masukkan Image"
+                    value={image}
+                    onChange={(e) => setImage(e.target.value)}
+                  />
+                </InputGroup>
+              </div>
+              <div className="input">
+                <Form.Label>
+                  <strong>Harga</strong>
+                </Form.Label>
+                <InputGroup className="d-flex gab-3">
+                  <Form.Control
+                    placeholder="Masukkan Harga"
+                    value={harga}
+                    onChange={(e) => setHarga(e.target.value)}
+                  />
+                </InputGroup>
+              </div>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+              <button type="submit" variant="primary">
+                Save Changes
+              </button>
+            </Modal.Footer>
+          </form>
+        </Modal>
    </div>
   )
 }

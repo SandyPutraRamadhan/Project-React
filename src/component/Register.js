@@ -28,14 +28,14 @@ export default function Register() {
         }
       );
       if (status === 200) { 
-        setRegistered((state) => {  Swal.fire(
-            'Register Berhasil!',
-            'Selamat Datang !' ,
-            'success'
-          )
-          setTimeout(() => {
-            window.location.reload();
-          }, 1500);
+        setRegistered((state) => {  
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+          })
           return [...state, data];
         });
       } else {

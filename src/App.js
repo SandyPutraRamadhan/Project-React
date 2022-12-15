@@ -6,8 +6,10 @@ import Dashboard from './component/Dashboard'
 import Makanan from './Menu/Makanan';
 import Minuman from './Menu/Minuman'
 import Edit from './view/PutMakanan';
+import EditMinuman from './view/PutMinuman'
 import {  Route, Routes  } from 'react-router-dom';
 import Games from './Menu/Games';
+import Cart from './component/Cart';
 
 function App() {
   return (
@@ -22,7 +24,9 @@ function App() {
         <Route path='/minuman' element={<Minuman/>}/>
         <Route path='/games' element={<Games/>}/>
         <Route path='/dashboard' element={<Dashboard/>}/>
+        <Route path='/cart' element={<Cart/>}/>
         <Route path="/edit/:id" element={<Edit/>}/>
+        <Route path="/edit/:id" element={<EditMinuman/>}/>
       </Routes>
     </div>
     </div>

@@ -24,56 +24,6 @@ function Navbar() {
 
   const navigate = useNavigate()
 
-  const addMakanan = async (e) => {
-    e.preventDefault();
-
-    try {
-      Swal.fire({
-        icon: "success",
-        title: "Berhasil Menambahkan",
-      });
-      await axios.post("http://localhost:8000/Makanans", {
-        nama: nama,
-        deskripsi: deskripsi,
-        image: image,
-        harga: harga,
-      });
-      window.location.reload();
-    } catch (error) {
-      console.log(error);
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Something went wrong!",
-      });
-    }
-  };
-  // Add Minuman
-  const addMinuman = async (e) => {
-    e.preventDefault();
-
-    try {
-      Swal.fire({
-        icon: "success",
-        title: "Berhasil Menambahkan",
-      });
-      await axios.post("http://localhost:8000/Minuman", {
-        nama: nama,
-        deskripsi: deskripsi,
-        image: image,
-        harga: harga,
-      });
-      window.location.reload();
-    } catch (error) {
-      console.log(error);
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Something went wrong!",
-      });
-    }
-  };
-
   const showButton = () => {
     if (window.innerWidth <= 960) {
       setButton(false);
@@ -88,8 +38,8 @@ function Navbar() {
 
   const logout = () => {
     localStorage.clear();
-    window.location.reload();
     navigate("/login");
+    window.location.reload();
   };
 
   window.addEventListener("resize", showButton);
@@ -99,8 +49,8 @@ function Navbar() {
       <nav className="navbar">
         <div className="navbar-container">
           <Link to="#" className="navbar-logo" onClick={closeMobileMenu}>
-            W.Online
-            <i class="fab fa-typo3" />
+            W.Online 
+            <i class="fa-solid fa-shop"></i>
           </Link>
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
@@ -125,167 +75,29 @@ function Navbar() {
                 to="/category"
                 className="nav-links"
                 onClick={closeMobileMenu}
-              >
+                >
                 Category
               </Link>
             </li>
-          </ul>
-          {localStorage.getItem("role") === "admin" && (
-            <li className="nav-item">
-              <button className="nav-links" onClick={handleShow}>
-                Add
-              </button>
-            </li>
-          )}
           {localStorage.getItem("id") !== null ? (
             <>
-              <li className="nav-item float-right">
-                <a className="nav-links" href="/login">
-                  Login
-                </a>
-              </li>
-            </>
-          ) : (
             <li className="nav-item float-right">
               <a className="nav-links" onClick={logout}>
                 logout
               </a>
             </li>
+            </>
+          ) : (
+            <li className="nav-item float-right">
+                <a className="nav-links " href="/login">
+                  Login
+                </a>
+              </li>
           )}
           {/* {button && <Button buttonStyle='btn-outline' className="nav-links">SIGN IN</Button>} */}
+            </ul>
         </div>
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Tambahkan Makanan</Modal.Title>
-          </Modal.Header>
-          <form onSubmit={addMakanan} method="POST">
-            <Modal.Body>
-              <div className="mb-3">
-                <Form.Label>
-                  <strong>Nama</strong>
-                </Form.Label>
-                <InputGroup className="d-flex gab-3">
-                  <Form.Control
-                    placeholder="Masukkan Nama"
-                    value={nama}
-                    onChange={(e) => setNama(e.target.value)}
-                  />
-                </InputGroup>
-              </div>
-              <div className="mb-3">
-                <Form.Label>
-                  <strong>Deskripsi</strong>
-                </Form.Label>
-                <InputGroup className="d-flex gab-3">
-                  <Form.Control
-                    placeholder="Masukkan Deskripsi"
-                    value={deskripsi}
-                    onChange={(e) => setDeskripsi(e.target.value)}
-                  />
-                </InputGroup>
-              </div>
-              <div className="mb-3">
-                <Form.Label>
-                  <strong>Image</strong>
-                </Form.Label>
-                <InputGroup className="d-flex gab-3">
-                  <Form.Control
-                    placeholder="Masukkan Image"
-                    value={image}
-                    onChange={(e) => setImage(e.target.value)}
-                  />
-                </InputGroup>
-              </div>
-              <div className="input">
-                <Form.Label>
-                  <strong>Harga</strong>
-                </Form.Label>
-                <InputGroup className="d-flex gab-3">
-                  <Form.Control
-                    placeholder="Masukkan Harga"
-                    value={harga}
-                    onChange={(e) => setHarga(e.target.value)}
-                  />
-                </InputGroup>
-              </div>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
-              <button type="submit" variant="primary">
-                Save Changes
-              </button>
-            </Modal.Footer>
-          </form>
-        </Modal>
-        {/* Modal Minuman */}
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Tambahkan Minuman</Modal.Title>
-          </Modal.Header>
-          <form onSubmit={addMinuman} method="POST">
-            <Modal.Body>
-              <div className="mb-3">
-                <Form.Label>
-                  <strong>Nama</strong>
-                </Form.Label>
-                <InputGroup className="d-flex gab-3">
-                  <Form.Control
-                    placeholder="Masukkan Nama"
-                    value={nama}
-                    onChange={(e) => setNama(e.target.value)}
-                  />
-                </InputGroup>
-              </div>
-              <div className="mb-3">
-                <Form.Label>
-                  <strong>Deskripsi</strong>
-                </Form.Label>
-                <InputGroup className="d-flex gab-3">
-                  <Form.Control
-                    placeholder="Masukkan Deskripsi"
-                    value={deskripsi}
-                    onChange={(e) => setDeskripsi(e.target.value)}
-                  />
-                </InputGroup>
-              </div>
-              <div className="mb-3">
-                <Form.Label>
-                  <strong>Image</strong>
-                </Form.Label>
-                <InputGroup className="d-flex gab-3">
-                  <Form.Control
-                    placeholder="Masukkan Image"
-                    value={image}
-                    onChange={(e) => setImage(e.target.value)}
-                  />
-                </InputGroup>
-              </div>
-              <div className="input">
-                <Form.Label>
-                  <strong>Harga</strong>
-                </Form.Label>
-                <InputGroup className="d-flex gab-3">
-                  <Form.Control
-                    placeholder="Masukkan Harga"
-                    value={harga}
-                    onChange={(e) => setHarga(e.target.value)}
-                  />
-                </InputGroup>
-              </div>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
-              <button type="submit" variant="primary">
-                Save Changes
-              </button>
-            </Modal.Footer>
-          </form>
-        </Modal>
-      </nav>
+          </nav>
     </React.Fragment>
   );
 }

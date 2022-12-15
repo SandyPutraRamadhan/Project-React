@@ -19,7 +19,7 @@ export default function Edit() {
   // React hooks useEffect digunakan untuk menambahkan side effect ke function komponen
   useEffect(() => {
     axios
-      .get("http://localhost:8000/Makanans/" + param.id)
+      .get("http://localhost:8000/Minuman/" + param.id)
       .then((response) => {
         const newBook = response.data;
         setNama(newBook.nama);
@@ -44,7 +44,7 @@ export default function Edit() {
       }).then((result) => {
         if (result.isConfirmed) {
           axios
-          .put("http://localhost:8000/Makanans/" + param.id, {
+          .put("http://localhost:8000/Minuman/" + param.id, {
             nama: nama,
             deskripsi: deskripsi,
             Image: image,
@@ -53,10 +53,10 @@ export default function Edit() {
         }
       })
       .then(() => {
-        navigate.push("/makanan");
+        navigate.push("/minuman");
         Swal.fire('Berhasil Mengedit!', '', 'success')
+        window.location.reload();
       })
-      window.location.reload();
   };
   return (
     <div className="edit mx-5">

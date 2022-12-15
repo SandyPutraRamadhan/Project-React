@@ -47,16 +47,103 @@
       "password": "sfcd",
       "role": "user",
       "id": 8
+    },
+    {
+      "username": "svdr",
+      "password": "sv",
+      "role": "user",
+      "id": 9
+    },
+    {
+      "username": "Sandi putra",
+      "password": "123",
+      "role": "user",
+      "id": 10
+    },
+    {
+      "username": "Sandi putra",
+      "password": "123",
+      "role": "user",
+      "id": 11
+    },
+    {
+      "username": "admin",
+      "password": "123",
+      "role": "user",
+      "id": 12
+    },
+    {
+      "username": "Sandi putra",
+      "password": "123",
+      "role": "user",
+      "id": 13
+    },
+    {
+      "username": "Sandi putra",
+      "password": "123",
+      "role": "user",
+      "id": 14
+    },
+    {
+      "username": "Sandi putra",
+      "password": "123",
+      "role": "user",
+      "id": 15
+    },
+    {
+      "username": "Sandi putra",
+      "password": "123",
+      "role": "user",
+      "id": 16
+    },
+    {
+      "username": "Sandi putra",
+      "password": "123",
+      "role": "user",
+      "id": 17
+    },
+    {
+      "username": "Sandi putra",
+      "password": "123",
+      "role": "user",
+      "id": 18
+    },
+    {
+      "username": "Sandi putra",
+      "password": "123",
+      "role": "user",
+      "id": 19
+    },
+    {
+      "username": "Sandi putra",
+      "password": "123",
+      "role": "user",
+      "id": 20
+    },
+    {
+      "username": "Sandi putra",
+      "password": "123",
+      "role": "user",
+      "id": 21
     }
   ],
-  "Makanans": [],
-  "Minuman": [
+  "Makanans": [
     {
-      "nama": "tfgn",
-      "deskripsi": "fgn",
-      "image": "dfbh",
-      "harga": "457",
+      "nama": "as",
+      "deskripsi": "asc",
+      "image": "cwq",
+      "harga": "asc",
       "id": 1
     }
-  ]
+  ],
+  "Minuman": [
+    {
+      "nama": "KFC Yubari Float",
+      "deskripsi": "Minuman dingin",
+      "image": "https://1.bp.blogspot.com/--jUwOYis8lc/YTgOze8yQNI/AAAAAAAE6Vo/HG4HeeNvK_ciTFt2gzV5erRUK-AyLaVUACNcBGAsYHQ/s1350/KFC-YUBARI-FLOAT-Minuman-Melon-Jepang-Terbaru-dari-KFC.jpg",
+      "harga": "15000",
+      "id": 1
+    }
+  ],
+  "CART": []
 }

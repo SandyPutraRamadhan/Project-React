@@ -12,45 +12,41 @@ export default function Games() {
             <div class="card-body">
               <h5 class="card-title">Z - Type</h5>
               <p class="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
+              Anda harus mengetik cepat untuk menang setiap kali dalam game ZType / Z Type ini. Di level mudah, Anda harus mencetak minimal 26 kata per menit untuk menang. Di tingkat menengah, minimal 46 kata per menit diperlukan. Namun di level sulit, Anda membutuhkan minimal 81 kata per menit untuk menang.
               </p>
             </div>
             <div class="card-footer">
-              <small class="text-muted">
-                <a href="https://zty.pe/"></a>
+                <a class="text-muted" href="https://zty.pe/">
                 <i>Go Play..</i>
-              </small>
+                </a>
             </div>
           </div>
           <div class="card">
-            <img src="https://www.google.com/logos/fnbx/top_ten/coding_thumb_1x.png" class="card-img-top" alt="..." />
+            <img src="http://www.google.com/logos/doodles/2021/doodle-champion-island-games-begin-6753651837108462.2-2xa.gif" class="card-img-top" alt="..." />
             <div class="card-body">
               <h5 class="card-title">Google Doddle</h5>
               <p class="card-text">
-                This card has supporting text below as a natural lead-in to
-                additional content.
+              menyertakan lima game yang dapat Anda mainkan langsung di beranda mesin pencari , dan bahkan menampilkan editor untuk membantu Anda merancang game Anda sendiri dengan mudah dan membaginya dengan teman
               </p>
             </div>
-            <div class="card-footer">
-              <small class="text-muted"><a href="https://www.google.com/logos/2017/logo17/logo17.html?hl=id"></a>
-                <i>Go Play..</i></small>
+            <div class="card-footer">          
+              <a class="text-muted" href="https://www.google.com/doodles">
+                <i>Go Play..</i>
+              </a>
             </div>
           </div>
           <div class="card">
-            <img src="https://lh3.googleusercontent.com/BpZ0gqFBZXaz9VbYan7cc-ON1CJ1xAozSq2Qqedgz9_TJ3q-rBbfcD4lZQMbemCHn5txgp-vYONJafyGMeWXjA7yovPjQHt2skJKP_E=s0" class="card-img-top" alt="..." />
+            <img src="https://i.pinimg.com/736x/0e/71/f7/0e71f7f5e2fff03603a0898983fc0353.jpg" class="card-img-top" alt="..." />
             <div class="card-body">
-              <h5 class="card-title">Google Kriket</h5>
+              <h5 class="card-title">W3 School Games</h5>
               <p class="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This card has even longer content
-                than the first to show that equal height action.
+              W3Schools Code Game adalah game web freeware yang dibuat untuk pemula dalam pengkodean, di mana tujuan pemain adalah membantu Lynx mencapai biji pinus dengan menggunakan ikon yang berbeda
               </p>
             </div>
             <div class="card-footer">
-              <small class="text-muted"><a href="https://www.google.com/logos/2017/cricket17/cricket17.html"></a>
-                <i>Go Play..</i></small>
+           <a class="text-muted" href="https://www.w3schools.com/codegame/">
+                <i>Go Play..</i>
+           </a>
             </div>
           </div>
         </div>

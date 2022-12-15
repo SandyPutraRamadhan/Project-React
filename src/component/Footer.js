@@ -46,7 +46,7 @@ function Footer() {
           <div class='footer-logo'>
             <Link to='/' className='social-logo'>
               W.Online
-              <i class='fab fa-typo3' />
+              <i class="fa-solid fa-shop"></i>
             </Link>
           </div>
           <small class='website-rights'>W.Online © 2020</small>

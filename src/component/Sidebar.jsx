@@ -16,22 +16,22 @@ const Sidebar = ({children}) => {
         {
             path:"/makanan",
             name:"Makanan",
-            icon:<FaTh/>
+            icon:<i class="fa-solid fa-bowl-food"></i>
         },
         {
             path:"/minuman",
             name:"Minuman",
-            icon:<FaUserAlt/>
-        },
-        {
-            path:"/snack",
-            name:"Snack",
-            icon:<FaRegChartBar/>
+            icon:<i class="fa-solid fa-wine-glass"></i>
         },
         {
             path:"/games",
             name:"Games",
-            icon:<FaRegChartBar/>
+            icon:<i class="fa-solid fa-gamepad"></i>
+        },
+        {
+            path:"/cart",
+            name:"Cart",
+            icon:<i class="fa-solid fa-cart-shopping"></i>
         }
     ]
     return (
